@@ -16,14 +16,43 @@ public class OrderServiceImpl implements OrderService {
 //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    // @Autowired - 필드 주입
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
 
-    @Autowired
+    // 생성자 주입
+     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("생성자 주입");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+    /*
+    // 메서드 주입
+    @Autowired
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("메서드 주입");
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+    */
+
+    /*
+    // 수정자 주입
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository) {
+        System.out.println("수정자 주입 : memberRepository");
+        this.memberRepository = memberRepository;
+    }
+
+    // 수정자 주입
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        System.out.println("수정자 주입 : discountPolicy");
+        this.discountPolicy = discountPolicy;
+    }
+     */
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
