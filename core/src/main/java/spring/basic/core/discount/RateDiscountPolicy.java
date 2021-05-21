@@ -7,6 +7,7 @@ import spring.basic.core.member.Member;
 
 @Primary
 @Component
+//@Qualifier("rateDiscount")
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;

@@ -11,6 +11,7 @@ import spring.basic.core.member.MemberRepository;
 import spring.basic.core.member.MemoryMemberRepository;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -18,16 +19,18 @@ public class OrderServiceImpl implements OrderService {
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     // @Autowired - 필드 주입
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
+    /*
     // 생성자 주입 - @RequiredArgsConstructor 로 대체 가능
      @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("rateDiscount") DiscountPolicy discountPolicy) {
         System.out.println("생성자 주입");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+    */
 
     /*
     // 메서드 주입
