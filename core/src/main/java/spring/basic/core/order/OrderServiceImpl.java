@@ -1,5 +1,6 @@
 package spring.basic.core.order;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spring.basic.core.discount.DiscountPolicy;
@@ -20,7 +21,7 @@ public class OrderServiceImpl implements OrderService {
     private MemberRepository memberRepository;
     private DiscountPolicy discountPolicy;
 
-    // 생성자 주입
+    // 생성자 주입 - @RequiredArgsConstructor 로 대체 가능
      @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         System.out.println("생성자 주입");
